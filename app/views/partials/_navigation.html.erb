@@ -1,22 +1,21 @@
 <header>
 <nav>
   <ul>
-    <li><a href="http://localhost:3000"><span class="primero"><i class="icon icon-home"></i></span>Inicio</a></li>
+    <li> <%= link_to raw('Inicio <span class="primero"><i class="icon icon-home"></i></span>' ),root_path %>  </li>
     <li><a><span class="segundo"><i class="icon icon-folder-open"></i></span>Usuarios</a>
       <ul>
-        <li><a href="http://localhost:3000/users/sign_in">Iniciar sesión</a></li>
-        <li><a href="http://localhost:3000/users/sign_up">Registrarse</a></li>
+        <li><%= link_to "Iniciar sesión",new_user_session_path %></li>
+        <li><%= link_to "Registrarse",new_user_registration_path %></li>
         <% if user_signed_in? %>
-        <li>
-          <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-        </li>
+          <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+
         <%end%>
       </ul>
     </li>
     <li><a><span class="tercero"><i class="icon icon-tv"></i></span>Blog</a>
       <ul>
-        <li><a href="http://localhost:3000/articles">Ver artículos</a></li>
-        <li><a href="http://localhost:3000/articles/new">Crear artículo</a></li>
+        <li><%= link_to "Ver Artículos",articles_path %></li>
+        <li><%= link_to "Crear Artículo",new_article_path %></li>
       </ul>
     </li>
     <li><a href="#"><span class="cuarto"><i class="icon icon-database"></i></span>Acerca de</a></li>
